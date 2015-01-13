@@ -1,0 +1,55 @@
+//General
+$darkBrown: #361c12;
+$brown: #4f3b3b;
+$darkRed: #9d321b;
+$red: #e56655;
+$darkYellow: #cd9c50;
+$yellow: #f4d37a;
+$cream: #f0e9dd;
+$darkGray: #5c5c5c;
+$lightGray: #bdbdbc;
+
+//Text
+$textOne: #4f3b3b;
+$textTwo: #fff;
+$textThree: #686767;
+
+//Spacific
+$ta: #ebebeb;
+$taColor:#a8a6a6;
+$divLine: #d7d7d7;
+
+@mixin transition($val){
+	-webkit-transition: $val;
+	-moz-transition: $val;
+	-o-transition: $val;
+	transition: $val;
+}
+
+@mixin boxShadow($val){
+	-moz-box-shadow: $val;
+	-webkit-box-shadow: $val;
+	box-shadow: $val;
+}
+
+@mixin borderRadius($val) {
+	-moz-border-radius: $val;
+	-webkit-border-radius: $val;
+	border-radius: $val;
+}
+
+@mixin boxSizing{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Helvetica", arial;
+	font-weight: normal;
+	font-size: 16px;
+	color: $textOne;
+}

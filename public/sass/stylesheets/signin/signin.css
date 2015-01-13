@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/*
+    Document   : public/sass/sass/signin/signin．scss
+    Created on : 2015-01-09 06:39 PM
+    Author     : jasommer350
+    Description:
+    Purpose of the stylesheet follows.
+    To change this template use Tools | Templates.
+*/
+/* line 47, ../../sass/_importme.scss */
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Helvetica", arial;
+  font-weight: normal;
+  font-size: 16px;
+  color: #4f3b3b;
+}
