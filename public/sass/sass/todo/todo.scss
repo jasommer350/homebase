@@ -1,0 +1,50 @@
+/*
+    Document   : public/sass/sass/todo/todo.scss
+    Created on : 2015-02-20 09:54 PM
+    Author     : jasommer350
+    Description:
+    Purpose of the stylesheet follows.
+    To change this template use Tools | Templates.
+*/
+
+.login-page {
+    background-color: #000;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    
+    .title {
+        color: #fff;
+        font-weight: 100;
+        font-size: 200%;
+    }
+}
+
+.login {
+    height: 100px;
+    margin-top: -100px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 100%;
+}
+
+.usernameInput {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #fff;
+    outline: none;
+    padding-bottom: 15px;
+    text-align: center;
+    width: 400px;
+    
+    color: #fff;
+    font-weight: 100;
+    
+    font-size: 200%;
+    letter-spacing: 3px;
+}
+
+button {
+    margin: 10px;
+}

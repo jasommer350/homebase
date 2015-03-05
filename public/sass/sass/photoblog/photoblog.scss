@@ -1,0 +1,160 @@
+.container {
+    width: 100%;
+}
+
+.portfolio {
+  margin-top: 20px;
+}
+
+.portfolio .all {
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.portfolio > figure {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio > figure > img {
+  max-width: 100%;
+  display: block;
+}
+
+.portfolio figcaption {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(58,63,67,.8);
+  padding: 10%;
+
+   -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+
+  -webkit-transition: all 350ms;
+  -moz-transition: all 350ms;
+  -o-transition: all 350ms;
+  transition: all 350ms;
+}
+.portfolio figure:hover figcaption {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.portfolio figcaption p {
+  color: #fff;
+  font-size: 0.87em;
+}
+
+.portfolio figcaption h4 {
+  color: #fff;
+}
+
+.portfolio > figure.columns {
+  display: none;
+}
+
+#all:checked ~ .portfolio .all, #newyork:checked ~ .portfolio .newyork, #othercities:checked ~ .portfolio .othercities, #coffee:checked ~ .portfolio .coffee, #tea:checked ~ .portfolio .tea {
+display: block;
+}
+
+
+.album-header {
+    height: 150px;
+    position: absolute;
+    background: none transparent;
+    z-index: 4; 
+    width: 100%;
+}
+
+.main.contents-wrapper {
+    
+    position: relative;
+    padding-top: 0;
+}
+.main .welcome-content {
+    max-width: 440px;
+    max-height: 440px;
+    padding: 10% 3%;
+    
+    border-radius: 4px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.welcome-content {
+    position: absolute;
+    top: -50px;
+    left: 150px;
+    z-index: 3;
+}
+.welcome-form-content {
+    background-color: #fafafa;
+    min-height: 265px;
+}
+.welcome-container {
+    padding: 30px 45px;
+}
+
+.main .contents .lifestyle-img {
+    min-width: 100%;
+    min-height: 100%;
+    position: relative;
+    background-size: 100%;
+    z-index: 1;
+}
+
+.lifestyle-img img {
+    height: 100%;
+    width: 100%;
+    
+}
+
+.modal-img {
+    height: 100%;
+    width: 100%;
+}
+
+#mid-tier img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: auto;
+}
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+  .container {
+    width: 100%;
+  }
+
+  label {
+    display: none;
+  }
+  .portfolio .all {
+    margin-bottom: 15px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .portfolio figcaption {
+    position: relative;
+
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+
+    background-color: #3a3f43;
+  }
+}

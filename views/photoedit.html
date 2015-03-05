@@ -1,0 +1,156 @@
+{% extends 'header.html' %} {% block head %} {% parent %}
+<link rel="stylesheet" href="/sass/stylesheets/photoblog/photoedit.css">{% endblock %} {% block content %}
+
+<div class="header">
+    <h1><span class="glyphicon glyphicon-camera" aria-hidden="true"></span>  Edit Your Photo <small>Slide the Sliders Below to See Changes</small></h1>
+</div>
+<div class="main container">
+    <div class="row">
+        <div class="col-sm-12">
+            <form id="urlBox" class="center">
+                <input type="file" id="fileElem" accept="image/*" style="display:none" onchange="handleFiles(this.files)">
+                <button id="fileSelect">Select a files</button>
+            </form>
+            
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <form id="imageEditor">
+                <input type="reset">
+                <p>
+                    <label for="contrast">Contrast</label>
+                    <input name="contrast" id="contrast" type="range" min="-100" max="100" step="1" value="0" data-filter="contrast">
+                </p>
+
+                <p>
+                    <label for="saturation">Saturation</label>
+                    <input name="saturation" id="saturation" type="range" min="-100" max="100" step="1" value="0" data-filter="saturation">
+                </p>
+
+                <p>
+                    <label for="brightness">Brightness</label>
+                    <input id="brightness" name="brightness" type="range" min="-100" max="100" step="1" value="0" data-filter="brightness">
+                </p>
+
+                <p>
+                    <label for="vibrance">Vibrance</label>
+                    <input name="vibrance" id="vibrance" type="range" min="-100" max="100" step="1" value="0" data-filter="vibrance">
+                </p>
+                <p>
+                    <label for="exposure">Exposure</label>
+                    <input name="exposure" id="exposure" type="range" min="-100" max="100" step="1" value="0" data-filter="exposure">
+                </p>
+                <p>
+                    <label for="hue">Hue</label>
+                    <input name="hue" id="hue" type="range" min="0" max="100" step="1" value="0" data-filter="hue">
+                </p>
+                <p>
+                    <label for="sepia">Sepia</label>
+                    <input name="sepia" id="sepia" type="range" min="0" max="100" step="1" value="0" data-filter="sepia">
+                </p>
+                <p>
+                    <label for="gamma">Gamma</label>
+                    <input name="gamma" id="gamma" type="range" min="0" max="10" step="0.1" value="0" data-filter="gamma">
+                </p>
+                <p>
+                    <label for="noise">Noise</label>
+                    <input name="noise" id="noise" type="range" min="0" max="100" step="1" value="0" data-filter="noise">
+                </p>
+                <p>
+                    <label for="clip">Clip</label>
+                    <input name="clip" id="clip" type="range" min="0" max="100" step="1" value="0" data-filter="clip">
+                </p>
+                <p>
+                    <label for="sharpen">Sharpen</label>
+                    <input name="sharpen" id="sharpen" type="range" min="0" max="100" step="1" value="0" data-filter="sharpen">
+                </p>
+                <p>
+                    <label for="stackBlur">Stack Blur</label>
+                    <input name="stackBlur" id="stackBlur" type="range" min="0" max="20" step="1" value="0" data-filter="stackBlur">
+                </p>
+                
+            </form>
+        </div>
+        <div class="row">
+            <div id="imageContainer" class="col-sm-6">
+                <canvas id="example" data-imgsrc="/img/defaults/nyc.jpg"></canvas>
+                <button id="saveImage">Save Image</button>
+            </div>
+            <div class="col-sm-6">
+                <div id="PresetFilters">
+
+                    <a class="btn btn-primary" data-preset="vintage">Vintage</a>
+
+                    <a class="btn btn-primary" data-preset="lomo">Lomo</a>
+
+                    <a class="btn btn-primary" data-preset="clarity">Clarity</a>
+
+                    <a class="btn btn-primary" data-preset="sinCity">Sin City</a>
+
+                    <a class="btn btn-primary" data-preset="sunrise">Sunrise</a>
+
+                    <a class="btn btn-primary" data-preset="crossProcess">Cross Process</a>
+
+                    <a class="btn btn-primary" data-preset="orangePeel">Orange Peel</a>
+
+                    <a class="btn btn-primary" data-preset="love">Love</a>
+
+                    <a class="btn btn-primary" data-preset="grungy">Grungy</a>
+
+                    <a class="btn btn-primary" data-preset="jarques">Jarques</a>
+
+                    <a class="btn btn-primary" data-preset="pinhole">Pinhole</a>
+
+                    <a class="btn btn-primary" data-preset="oldBoot">Old Boot</a>
+
+                    <a class="btn btn-primary" data-preset="glowingSun">Glowing Sun</a>
+
+                    <a class="btn btn-primary" data-preset="hazyDays">Hazy Days</a>
+
+                    <a class="btn btn-primary" data-preset="herMajesty">Her Majesty</a>
+
+                    <a class="btn btn-primary" data-preset="nostalgia">Nostalgia</a>
+
+                    <a class="btn btn-primary" data-preset="hemingway">Hemingway</a>
+
+                    <a class="btn btn-primary" data-preset="concentrate">Concentrate</a>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+
+
+        </div>
+    </div>
+</div>
+<!-- /container -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <h4 class="modal-title" id="myModalLabel">Processing Preset Effect</h4>
+      </div>
+      <div class="modal-body">
+        This window will stay open until process of the effect is complete then it will automatically hide
+      </div>
+      <div class="modal-footer">
+        Thanks
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="/js/vendor/caman.full.min.js"></script>
+<script src="/js/photoblog/photoedit.js"></script>
+{% endblock %}

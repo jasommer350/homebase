@@ -1,0 +1,77 @@
+/* line 1, ../sass/dataManager.scss */
+.flex-container {
+  diplay: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+/* line 14, ../sass/dataManager.scss */
+.item {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 150px;
+  -ms-flex: 1 0 150px;
+  flex: 1 0  150px;
+  padding: 25px;
+  min-height: 300px;
+}
+
+/* line 26, ../sass/dataManager.scss */
+.center-content {
+  text-align: center;
+  background-color: #a26fbc;
+  box-shadow: 1px -2px 10px 1px #afafaf;
+  margin: 4px;
+}
+
+/* line 34, ../sass/dataManager.scss */
+.btn-grp-float-right button {
+  float: right;
+}
+
+/* line 38, ../sass/dataManager.scss */
+a {
+  color: #333;
+}
+
+/* line 42, ../sass/dataManager.scss */
+.visible-hidden {
+  display: none;
+}
+
+/* line 46, ../sass/dataManager.scss */
+.show-panel {
+  display: block;
+}
+
+/* line 50, ../sass/dataManager.scss */
+.show-response {
+  display: block;
+  background: #a26fbc;
+  position: fixed;
+  top: 25%;
+  left: 65%;
+  -moz-box-shadow: 0 0 12px #999999;
+  -webkit-box-shadow: 0 0 12px #999999;
+  box-shadow: 0 0 12px #999999;
+  color: #ffffff;
+  opacity: 0.8;
+  margin: 0 0 6px;
+  padding: 15px 15px 15px 50px;
+  width: 300px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+}
+
+@media (max-height: 400px) and (max-width: 768px) {
+  /* line 73, ../sass/dataManager.scss */
+  .center-content {
+    padding: 5px;
+    min-height: 100px;
+  }
+}

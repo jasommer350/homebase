@@ -1,0 +1,183 @@
+/* line 1, ../../sass/photoblog/photoblog.scss */
+.container {
+  width: 100%;
+}
+
+/* line 5, ../../sass/photoblog/photoblog.scss */
+.portfolio {
+  margin-top: 20px;
+}
+
+/* line 9, ../../sass/photoblog/photoblog.scss */
+.portfolio .all {
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+/* line 16, ../../sass/photoblog/photoblog.scss */
+.portfolio > figure {
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 21, ../../sass/photoblog/photoblog.scss */
+.portfolio > figure > img {
+  max-width: 100%;
+  display: block;
+}
+
+/* line 26, ../../sass/photoblog/photoblog.scss */
+.portfolio figcaption {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(58, 63, 67, 0.8);
+  padding: 10%;
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-transition: all 350ms;
+  -moz-transition: all 350ms;
+  -o-transition: all 350ms;
+  transition: all 350ms;
+}
+
+/* line 46, ../../sass/photoblog/photoblog.scss */
+.portfolio figure:hover figcaption {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+}
+
+/* line 54, ../../sass/photoblog/photoblog.scss */
+.portfolio figcaption p {
+  color: #fff;
+  font-size: 0.87em;
+}
+
+/* line 59, ../../sass/photoblog/photoblog.scss */
+.portfolio figcaption h4 {
+  color: #fff;
+}
+
+/* line 63, ../../sass/photoblog/photoblog.scss */
+.portfolio > figure.columns {
+  display: none;
+}
+
+/* line 67, ../../sass/photoblog/photoblog.scss */
+#all:checked ~ .portfolio .all, #newyork:checked ~ .portfolio .newyork, #othercities:checked ~ .portfolio .othercities, #coffee:checked ~ .portfolio .coffee, #tea:checked ~ .portfolio .tea {
+  display: block;
+}
+
+/* line 72, ../../sass/photoblog/photoblog.scss */
+.album-header {
+  height: 150px;
+  position: absolute;
+  background: none transparent;
+  z-index: 4;
+  width: 100%;
+}
+
+/* line 80, ../../sass/photoblog/photoblog.scss */
+.main.contents-wrapper {
+  position: relative;
+  padding-top: 0;
+}
+
+/* line 85, ../../sass/photoblog/photoblog.scss */
+.main .welcome-content {
+  max-width: 440px;
+  max-height: 440px;
+  padding: 10% 3%;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 94, ../../sass/photoblog/photoblog.scss */
+.welcome-content {
+  position: absolute;
+  top: -50px;
+  left: 150px;
+  z-index: 3;
+}
+
+/* line 100, ../../sass/photoblog/photoblog.scss */
+.welcome-form-content {
+  background-color: #fafafa;
+  min-height: 265px;
+}
+
+/* line 104, ../../sass/photoblog/photoblog.scss */
+.welcome-container {
+  padding: 30px 45px;
+}
+
+/* line 108, ../../sass/photoblog/photoblog.scss */
+.main .contents .lifestyle-img {
+  min-width: 100%;
+  min-height: 100%;
+  position: relative;
+  background-size: 100%;
+  z-index: 1;
+}
+
+/* line 116, ../../sass/photoblog/photoblog.scss */
+.lifestyle-img img {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 122, ../../sass/photoblog/photoblog.scss */
+.modal-img {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 127, ../../sass/photoblog/photoblog.scss */
+#mid-tier img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: auto;
+}
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+  /* line 136, ../../sass/photoblog/photoblog.scss */
+  .container {
+    width: 100%;
+  }
+
+  /* line 140, ../../sass/photoblog/photoblog.scss */
+  label {
+    display: none;
+  }
+
+  /* line 143, ../../sass/photoblog/photoblog.scss */
+  .portfolio .all {
+    margin-bottom: 15px;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* line 149, ../../sass/photoblog/photoblog.scss */
+  .portfolio figcaption {
+    position: relative;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+    background-color: #3a3f43;
+  }
+}

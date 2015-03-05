@@ -1,0 +1,87 @@
+{% extends 'header.html' %} {% block head %} {% parent %}
+<title>Data Viewer and Input</title>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/sass/stylesheets/dataManager.css">
+
+{% endblock %} 
+
+{% block content %}
+        
+ <div id="main-menu" class="well">
+        <div>
+            <div class="row">
+                <div class="flex-container">
+                    <div class="item center-content" id="add-data">
+                    <h3>CREATE</h3>
+                        <p>Create/Edit</p>
+                        <br>
+                        <i class="fa fa-plus-circle fa-5x"></i>
+                    </div>
+                    <div class="item center-content" id="view-data">
+                        <h3>VIEW</h3>
+                        <p>View/Edit/Remove Your Existing Data</p>
+                        <br>
+                        <i class="fa fa-eye fa-5x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="create-form" class="well visible-hidden">
+        <div>
+            <div class="row">
+                <div class="flex-container">
+                    <div class="item">
+                    <h3>CREATE</h3>
+                        <p>Create New</p>
+                        <br>
+                        <button type="button" class="btn btn-danger" data-source="add-data" id="backMainMenu-form"><i class="fa fa-home fa-4x"></i></button>
+                        <button type="button" class="btn btn-primary" id="backDataList"><i class="fa fa-list fa-4x"></i></button>
+                        <br>
+                        {% block form %}
+                        
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="data-view" class="well visible-hidden">
+        <div>
+            <div class="row">
+                <div class="flex-container">
+                    <div class="item">
+                    <h3>List of Data</h3>
+                        <p>View/Edit/Remove Your Data Below</p>
+                        <br>
+                        <button type="button" class="btn btn-success" id="backCreate"><span><i class="fa fa-plus-square fa-3x"></i></span></button>
+                        <button type="button" class="btn btn-danger" data-source="view-data" id="backMainMenu-list"><i class="fa fa-home fa-3x"></i></button>
+                        <br>
+                        <ul id="data-list" class="list-group">
+                            {% block datalist %}
+                            {% endblock %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="responseDiv" class="visible-hidden">Created/Updated</div>
+    <div id="setApiKey" class="well flex-container">
+      <form class="form-inline" role="form">
+        <div class="form-group">
+          <div class="input-group">
+            <label class="sr-only" for="apikey">Api Key</label>
+            <div class="input-group-addon">API</div>
+            <input type="text" class="form-control" id="apikey" placeholder="Enter Api Key">
+          </div>
+        </div>
+        <button class="btn btn-default" id="apikey-btn">Set/Update API Key</button>
+      </form>
+    </div>
+    {% block customscripts %}{% endblock %}
+
+{% endblock %}

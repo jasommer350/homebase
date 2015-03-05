@@ -1,0 +1,68 @@
+{% extends 'datainput.html' %}
+
+{% block form %}
+<form class="form-horizontal" role="form" id="reminder-form">
+    <div class="form-group">
+        <label for="reminder-title" class="col-sm-2 control-label">Album Title</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" id="albumnName" placeholder="Album Name">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="jumbo-narrative" class="col-sm-2 control-label">Jumbo Narrative</label>
+        <div class="col-sm-6">
+            <textarea name="jumbo-narrative" class="form-control" id="jumbo"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="subhOne-narrative" class="col-sm-2 control-label">Sub Narrative One</label>
+        <div class="col-sm-6">
+            <textarea name="subhOne-narrative" class="form-control" id="subhOne"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="subhTwo-narrative" class="col-sm-2 control-label">Sub Narrative Two</label>
+        <div class="col-sm-6">
+            <textarea name="subhTwo-narrative" class="form-control" id="subhTwo"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="subhThree-narrative" class="col-sm-2 control-label">Sub Narrative Two</label>
+        <div class="col-sm-6">
+            <textarea name="subhThree-narrative" class="form-control" id="subhThree"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button class="btn btn-default" id="form-btn-submit">Submit</button>
+        </div>
+    </div>
+    <input type="text" id="data_id" class="visible-hidden" value="new">
+</form>
+{% endblock %}
+
+{% block datalist %}
+{% for val in doc %}
+<li id="{{val._id}}" data-albumname="{{val.albumnName}}" class="list-group-item">
+    <div class="btn-grp-float-right">
+        <button type="button" class="btn btn-danger" id="destroyIng">
+            <span><i data-action="remove" class="fa fa-times fa-2x"></i></span></button>
+        <button type="button" class="btn btn-success" id="destroyIng">
+            <span><i data-action="edit" class="fa fa-pencil-square fa-2x"></i></span></button>
+    </div>
+    <div class="album-li-title">
+        <h4>{{val.albumnName|capitalize}}: <span class="label label-primary">{{val.template|capitalize}}</span></h4>
+    </div>
+    <hr>
+    <div class="album-li-detail">
+        <p>{{val.jumbo}}</p><i><p>{{val.today|date('jS \o\f F')}}</p></i>
+    </div>
+</li>
+{% endfor %}
+{% endblock %}
+{% block customscripts %}
+<script src="/socket.io/socket.io.js"></script>
+    <script src="/js/DataManager.js"></script>
+    <script src="/js/DataManagerNavs.js"></script>
+    <script src="/js/photoblog/photoblog_main.js"></script>
+{% endblock %}

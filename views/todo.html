@@ -1,0 +1,29 @@
+{% extends 'header.html' %} {% block head %} {% parent %}
+    
+    <link rel="stylesheet" href="/sass/stylesheets/todo/todo.css">
+{% endblock %} {% block content %}
+    
+    <div id="login-screen" class="login-page">
+        <div class="login">
+            <h3 class="title">What's your nickname and Room?</h3>
+            <input id="name" class="usernameInput" type="text" maxlength="14">
+            <br>
+            <input id="room" class="usernameInput" type="text" maxlength="14">
+            <br>
+            <button class="btn btn-default" id="joinrm">Set Name and Room</button>
+        </div>
+        
+    </div>
+    
+    <div id="enter-todos">
+        <h2>Todos</h2>
+        <input type="text" id="text">
+        <input id="add" type="button" value="+ Add new">
+ 
+        <ul id="showAll"></ul>
+    </div>
+ 
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/todos/DataManager.js"></script>
+ 
+    <script src="/js/todos/TodoMain.js"></script>

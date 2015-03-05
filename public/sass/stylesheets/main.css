@@ -9,6 +9,15 @@
 */
 /* line 10, ../sass/main.scss */
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+/* line 15, ../sass/main.scss */
+img.bg {
+  padding: 10px;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: relative;
 }

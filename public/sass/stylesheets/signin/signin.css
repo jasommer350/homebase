@@ -17,3 +17,147 @@ body {
   font-size: 16px;
   color: #4f3b3b;
 }
+
+/*
+    Document   : public/sass/sass/_form．scss
+    Created on : 2015-01-13 02:39 AM
+    Author     : jasommer350
+    Description:
+    Purpose of the stylesheet follows.
+    To change this template use Tools | Templates.
+*/
+/* line 10, ../../sass/_form.scss */
+input.ui_form, div.ui_form input,
+textarea.ui_form_text, div.ui_form_text textarea {
+  -webkit-font-smoothing: antialiased;
+  outline: none;
+  border: none;
+  background: #4f3b3b;
+  color: #fff;
+  font-size: .9em;
+  line-height: 25px;
+  resize: none;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 23, ../../sass/_form.scss */
+input.ui_form, div.ui_form input {
+  padding: 5px 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+}
+
+/* line 27, ../../sass/_form.scss */
+.ui_form span + input {
+  padding-left: 35px;
+  margin: 0;
+}
+
+/* line 31, ../../sass/_form.scss */
+.ui_form span {
+  display: block;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  margin: 5px 0 0 5px;
+  background: #f4d37a;
+  color: #4f3b3b;
+  text-align: center;
+  font-family: "liga";
+  font-size: 16px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+/* line 45, ../../sass/_form.scss */
+textarea.ui_form_text, div.ui_form_text textarea {
+  padding: 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 49, ../../sass/_form.scss */
+div.ui_form_text span {
+  display: block;
+  position: absolute;
+  color: #f4d37a;
+  font-family: "liga";
+  margin: 10px 0 0 10px;
+}
+
+/* line 56, ../../sass/_form.scss */
+div.ui_form_text span + textarea {
+  margin: 0;
+  padding-left: 35px;
+}
+
+/* line 13, ../../sass/signin/signin.scss */
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24em;
+}
+
+/* line 20, ../../sass/signin/signin.scss */
+#signin {
+  background: #f4d37a;
+}
+
+/* line 23, ../../sass/signin/signin.scss */
+#login {
+  -webkit-box-flex: 0;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+  max-width: 50%;
+  height: 180px;
+}
+
+/* line 32, ../../sass/signin/signin.scss */
+#login h1 {
+  padding: 0;
+  margin: 5px 0 15px 0;
+  line-height: 100%;
+  font-size: 24px;
+  font-weight: 200;
+  text-align: center;
+}
+
+/* line 40, ../../sass/signin/signin.scss */
+#login .mt {
+  margin-top: 15px;
+}
+
+/* line 43, ../../sass/signin/signin.scss */
+#login a {
+  display: block;
+  float: right;
+  margin-top: 15px;
+  padding: 0 20px;
+  line-height: 35px;
+  background: #fff;
+  font-size: 15px;
+  color: #4f3b3b;
+  text-align: center;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/* line 56, ../../sass/signin/signin.scss */
+#login a:hover {
+  background: #cd9c50;
+  color: #fff;
+}

@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/*
+    Document   : public/sass/sass/photoblog/photoedit．scss
+    Created on : 2015-02-05 08:32 PM
+    Author     : jasommer350
+    Description:
+    Purpose of the stylesheet follows.
+    To change this template use Tools | Templates.
+*/
+/* line 10, ../../sass/photoblog/photoedit.scss */
+#imageContainer canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 15, ../../sass/photoblog/photoedit.scss */
+.header {
+  background-color: #265a88;
+  color: white;
+}
+/* line 18, ../../sass/photoblog/photoedit.scss */
+.header h1 {
+  height: 125px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+/* line 23, ../../sass/photoblog/photoedit.scss */
+.header h1 small {
+  color: white;
+}
+
+/* line 29, ../../sass/photoblog/photoedit.scss */
+.btn {
+  width: 120px;
+}

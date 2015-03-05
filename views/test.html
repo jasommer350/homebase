@@ -1,0 +1,121 @@
+{% extends 'header.html' %} {% block head %} {% parent %}
+<link rel="stylesheet" href="/sass/stylesheets/main.css">
+<link rel="stylesheet" href="/sass/stylesheets/photoblog/photoblog.css">{% endblock %} {% block content %}
+
+<div class="album-header">
+    <h1>Photoblog Album</h1>
+</div>
+
+<div class="main contents-wrapper">
+    <section class="contents">
+        <div class="lifestyle-img">
+            <img src="{{doc.picLocations.jumbopic}}" alt="" id="jumbopic">
+        </div>
+        <section class="welcome-content">
+            <section class="welcome-form-content">
+                <div class="welcome-container">
+                    <section class="main_headline">
+                        <div id="mh_h1">
+                            <h1 id="album-name" data-album="{{doc.albumnName}}" data-id="{{doc._id}}" class="hmain">{{doc.jumbo}}</h1>
+                            <a href="#mid-tier" id="top" data-scrollid="#mid-tier">Click to scroll down</a>
+                            <button class="btn btn-primary" id="addPics">Add New Pics or Updating Existing</button>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </section>
+    </section>
+</div>
+    <div id="mid-tier" class="container">
+      <!-- Example row of columns -->
+      <div class="row well">
+        <div class="col-md-4">
+          <h2></h2>
+            <img src="{{doc.picLocations.subheading_one}}" alt="nyc" id="subheading_one" height="180">
+          <p>{{doc.subhOne}}</p>
+          
+        </div>
+        <div class="col-md-4">
+          <h2></h2>
+            <img src="{{doc.picLocations.subheading_two}}" alt="nyc" id="subheading_two" height="180">
+          <p>{{doc.subhTwo}}</p>
+          
+       </div>
+        <div class="col-md-4">
+          <h2></h2>
+            <img src="{{doc.picLocations.subheading_three}}" alt="nyc" id="subheading_three" height="180">
+          <p>{{doc.subhThree}}</p>
+          
+        </div>
+      </div>
+
+      <hr>
+    </div> <!-- /container -->
+    
+    <div>
+        <section class="portfolio" id="gallery">
+            {% for val in doc.picLocations.gallery %}
+            <figure class="col-md-3 col-sm-6 all" data-src="{{val}}">
+                <img src="{{val}}" alt="This is a gallery thumbnail.">
+                <figcaption>
+                    <h4>What Do You Want To Do?</h4>
+                    <p> Select an Option Below </p>
+                    <button data-btn="view" class="btn btn-default">
+                        View
+                    </button>
+                    <button data-btn="remove" class="btn btn-danger" >
+                        Remove
+                    </button>
+                </figcaption>
+            </figure>
+            {% endfor %}
+            
+        </section>
+    </div>
+
+<div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Picture Details</h4>
+      </div>
+      <div class="modal-body">
+        <img class="modal-img" id="modalImg" src="" alt="">
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Upload New Pictures</h4>
+      </div>
+      <div class="modal-body">
+          <input type="file" id="fileElem" accept="image/*">
+          <select id="picLocation">
+              <option value="subheading_one">SubHeading One</option>
+              <option value="subheading_two">SubHeading Two</option>
+              <option value="subheading_three">SubHeading Three</option>
+              <option value="jumbopic">Jumbo Pic</option>
+              <option value="gallery">Gallery Pic</option>
+          </select>
+           </div>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/photoblog/photoblog.js"></script>
+{% endblock %}

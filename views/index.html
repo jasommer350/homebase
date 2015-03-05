@@ -3,13 +3,15 @@
 {% block head %}
     {% parent %}
     <link rel="stylesheet" href="/sass/stylesheets/main.css">
+    <link rel="stylesheet" href="/sass/stylesheets/photoblog/photoblog.css">
 {% endblock %}
 
 {% block content %}
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
+        <img src="{{doc.picLocations.jumbopic}}" alt="" class="bg" id="jumbopic" height="318px">
       <div class="container">
-        <h1>Hello, Family!</h1>
+        <h1 id="album-name" data-album="miami">Hello Miami 2nd Honeymoon</h1>
         <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
       </div>
@@ -17,31 +19,104 @@
 
     <div class="container">
       <!-- Example row of columns -->
-      <div class="row">
+      <div class="row well">
         <div class="col-md-4">
           <h2>Heading</h2>
+            <img src="{{doc.picLocations.subheading_one}}" alt="nyc" id="subheading_one" height="180">
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>Heading</h2>
+            <img src="{{doc.picLocations.subheading_two}}" alt="nyc" id="subheading_two" height="180">
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
        </div>
         <div class="col-md-4">
           <h2>Heading</h2>
+            <img src="{{doc.picLocations.subheading_three}}" alt="nyc" id="subheading_three" height="180">
           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
       </div>
 
       <hr>
-
-      <footer>
-        <p>&copy; Company 2014</p>
-      </footer>
     </div> <!-- /container -->
+    <div>
+        <section class="portfolio" id="gallery">
+            {% for val in doc.picLocations.gallery %}
+            <figure class="col-md-3 col-sm-6 all">
+                <img src="{{val}}" alt="This is a gallery thumbnail.">
+                <figcaption>
+                    <h4>What Do You Want To Do?</h4>
+                    <p> Select an Option Below </p>
+                    <button class="btn btn-default" >
+                        View
+                    </button>
+                    <button class="btn btn-danger" >
+                        Remove
+                    </button>
+                </figcaption>
+            </figure>
+            {% endfor %}
+            <figure class="col-md-3 col-sm-6 all">
+                <img src="/img/miami/upload_06720d16eade991dac5638cb5319d87a.jpg" alt="This is a gallery thumbnail.">
+                <figcaption>
+            <h4>Lorem Ipsum</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Morbi molestie lobortis magna eget sagittis.</p>
+                </figcaption>
+            </figure>
+            <figure class="col-md-3 col-sm-6 all">
+                <img src="/img/miami/upload_06720d16eade991dac5638cb5319d87a.jpg" alt="This is a gallery thumbnail.">
+                <figcaption>
+            <h4>Lorem Ipsum</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Morbi molestie lobortis magna eget sagittis.</p>
+                </figcaption>
+            </figure>
+            <figure class="col-md-3 col-sm-6 all">
+                <img src="/img/miami/upload_06720d16eade991dac5638cb5319d87a.jpg" alt="This is a gallery thumbnail.">
+                <figcaption>
+                    <h4>What Do You Want To Do?</h4>
+                    <p> Select an Option Below </p>
+                    <button class="btn btn-default" >
+                        View
+                    </button>
+                    <button class="btn btn-danger" >
+                        Remove
+                    </button>
+                </figcaption>
+            </figure>
+            <figure class="col-md-3 col-sm-6 all">
+                <img src="/img/miami/upload_06720d16eade991dac5638cb5319d87a.jpg" alt="This is a gallery thumbnail.">
+                <figcaption>
+            <h4>Lorem Ipsum</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit. Morbi molestie lobortis magna eget sagittis.</p>
+                </figcaption>
+            </figure>
+        </section>
+    </div>
+<div class="container">
+      <div class="row well">
+          <div class="col-sm-6">
+              <input type="file" id="fileElem" accept="image/*">
+                <select id="picLocation">
+                  <option value="subheading_one">SubHeading One</option>
+                  <option value="subheading_two">SubHeading Two</option>
+                  <option value="subheading_three">SubHeading Three</option>
+                    <option value="jumbopic">Jumbo Pic</option>
+                </select>
+            </div>
+        <div class='progress_outer'>
+            <div id='_progress' class='progress'></div>
+        </div>
+        </div>  
+
+</div>
     <script src="/js/main.js"></script>
+    <script src="/js/photoblog/photoblog.js"></script>
 
 {% endblock %}
 

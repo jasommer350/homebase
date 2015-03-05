@@ -8,3 +8,52 @@
 */
 
 @import "../importme";
+@import "../_form";
+
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    min-height: 24em;
+}
+
+#signin{
+	background:$yellow;
+}
+#login{
+-webkit-box-flex: 0;
+-webkit-flex: none;
+-ms-flex: none;
+flex: none;
+max-width: 50%;
+	height: 180px;
+
+}
+#login h1{
+	padding: 0;
+	margin: 5px 0 15px 0;
+	line-height: 100%;
+	font-size:24px;
+	font-weight: 200;
+	text-align: center;
+}
+#login .mt{
+	margin-top: 15px;
+}
+#login a{
+	display: block;
+	float: right;
+	margin-top: 15px;
+	padding: 0 20px;
+	line-height: 35px;
+	background:#fff;
+	font-size:15px;
+	color:$textOne;
+	text-align: center;
+	@include borderRadius(30px);
+	@include transition(all .3s);
+}
+#login a:hover{
+	background:$darkYellow;
+	color:$textTwo;
+}
