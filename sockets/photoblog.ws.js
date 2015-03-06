@@ -25,8 +25,8 @@ module.exports = function(io) {
                 dispatchAll(socket);
             });
         });
-        socket.on('deleteData', function(data) {
-            db.removeData(data.id, function(err, data) {
+        socket.on('deleteData', function(id) {
+            db.removeData(id, function(err, data) {
                 if(err) throw err; // You can emit the error to a socket 
                 dispatchAll(socket);
             });

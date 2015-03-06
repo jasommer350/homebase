@@ -64,6 +64,16 @@
         callback(!_global.isConnectionAlive);
     };
     
+    DataManager.prototype.getData = function(collection, endpoint, callback) {
+        var self = this;
+          if(_global.isConnectionAlive) {
+              self.collSockets[collection].emit(endpoint);
+          } else {
+              console.log("no data connection");
+          }
+          callback(_global.isConnectionAlive);
+    };
+    
     DataManager.prototype._connect = function() {
         _global.isConnectionAlive = true; //We have connection!
         //sync localstorage first since before we would have been disconnected
