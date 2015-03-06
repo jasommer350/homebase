@@ -1,5 +1,6 @@
+
 var options = {
-        connection: 'https://today-command.codio.io:9500',
+        connection: window.location.origin,
         connectCB: connectCB,
         nickname: $('#name').val(),
         collections: [{
