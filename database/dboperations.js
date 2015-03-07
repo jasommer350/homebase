@@ -10,12 +10,13 @@ var fs = require('fs'),
     imgFolder = '/home/codio/workspace/public',
     dbOps = {
         db: null,
-        opendb: function(filename) {
+        opendb: function(filename, mainDirname) {
             // Of course you can create multiple datastores if you need several
             // collections. In this case it's usually a good idea to use autoload for all collections.
             //db = {};
             //db.users = new Datastore('path/to/users.db');
             //db.robots = new Datastore('path/to/robots.db');
+            imgFolder = this.mainDirname = mainDirname + '/public';
             this.db = new Datastore({
                 filename: filename,
                 autoload: true

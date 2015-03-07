@@ -7,7 +7,7 @@ var express = require('express'),
     swig = require('swig'),
     routes = require('./routes'),
     app = express(),
-    db = require('./database/dboperations').opendb('photoblog.db');
+    db = require('./database/dboperations').opendb('photoblog.db', __dirname);
 
 
 // Disables caching in Swig.
