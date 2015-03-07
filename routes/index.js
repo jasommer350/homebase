@@ -9,12 +9,12 @@ module.exports = exports = function(app, mainDirname) {
     
     /* GET home page. */
     app.get('/', checkUser, function(req, res) {
-      res.render('test',{});
+      res.render('signin',{});
     });
     
     app.get('/view/photoblog/main', photoblogMain.handleGetAllAlbums);
     
-    app.get('/view/:album/:albumId', uploadHandler.handleAlbumPage);
+    app.get('/view/:album/:albumId', uploadHandler.handleAlbumPageTest);
     app.post('/upload/:album', uploadHandler.handleImageUploads);
     app.delete('/remove/:album/:fileName', uploadHandler.handleImageDelete);
     app.delete('/remove/gallerypic/:album/:albumid/:fileName', uploadHandler.handleImageDeleteGallery);
@@ -49,7 +49,7 @@ module.exports = exports = function(app, mainDirname) {
                 req.signinJSON = JSON.parse(dataObj);
                 //Check username
                 res.cookie("Username", req.signinJSON.username);
-                res.redirect(302, "/");
+                res.redirect(302, "/view/photoblog/main");
 
             } catch (e) {
                 console.log(e);

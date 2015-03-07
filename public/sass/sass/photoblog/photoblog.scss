@@ -84,7 +84,7 @@ display: block;
 }
 .main .welcome-content {
     max-width: 440px;
-    max-height: 440px;
+    
     padding: 10% 3%;
     
     border-radius: 4px;
@@ -131,12 +131,28 @@ display: block;
     margin: auto;
 }
 
+.shadow {
+  -webkit-box-shadow: 8px 8px 15px -6px black;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    8px 8px 15px -6px black;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         8px 8px 15px -6px black;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.one-edge-shadow {
+  -webkit-box-shadow: 0 8px 6px -6px black;
+     -moz-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
+}
+
 /* Smaller than standard 960 (devices and browsers) */
 @media only screen and (max-width: 959px) {
   .container {
     width: 100%;
   }
-
+  
+  .main .welcome-content {
+    display: none;
+} 
+    
   label {
     display: none;
   }

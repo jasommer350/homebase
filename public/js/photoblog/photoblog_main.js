@@ -38,15 +38,12 @@ function sendFormData (evt) {
             subhThree: subhThreeEl.val()
         };
     if (addOrUpdate === 'new') {
-        dm.puData('photoblog', 'addAlbum', formData, savedToLocal)
+        dm.pubData('photoblog', 'addAlbum', formData, savedToLocal)
     } else {
         formData._id = formDataIdEl.val();
-        dm.puData('photoblog', 'updateData', formData, savedToLocal)
+        dm.pubData('photoblog', 'updateData', formData, savedToLocal)
         formDataIdEl.val('new') //Resets to new default
     }
-    
-    console.log(formData);
-    dm.pubData('photoblog', 'addAlbum', formData, savedToLocal);
 }
 
 
@@ -71,8 +68,8 @@ function dataItemChg(evt) {
 }
 
 function connectCB() {
-    console.log('Connected to Server');
-    console.log('Getting Data refresh');
+    //console.log('Connected to Server');
+    //console.log('Getting Data refresh');
     
     dm.getData('photoblog', 'getAllData', function(result) {
         console.log("Able to get data on connection?", result);
@@ -120,7 +117,8 @@ function listTemplate (val) {
                     '<span><i data-action="edit" class="fa fa-pencil-square fa-2x"></i></span></button>',
                     '</div>',
                     '<div class="album-li-title">',
-                    '<h4>' + val.albumnName + ': <span class="label label-primary">' + val.template + '</span></h4>',
+                    //<a href="/view/{{val.albumnName}}/{{val._id}}">{{val.albumnName|capitalize}}: </a>
+                    '<h4><a href="/view/' + val.albumnName + '/' + val._id + '">' + val.albumnName + ': </a><span class="label label-primary">' + val.template + '</span></h4>',
                     '</div>',
                     '<hr>',
                     '<div class="album-li-detail">',

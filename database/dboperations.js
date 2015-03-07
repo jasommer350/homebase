@@ -31,13 +31,16 @@ var fs = require('fs'),
           this.db.find({_id:_id}, callback);  
         },
         updateData: function(data, callback) {
+            // { $set: { system: 'solar system' } }
+            var _id = data._id;
+            delete data._id; //Delets ID so it is not part of set function
             this.db.update({
-            id: data._id
-        }, data, {}, callback);
+            _id: _id
+        }, {$set: data}, {}, callback);
         },
         removeData: function(_id, callback) {
           this.db.remove({
-                id: _id
+                _id: _id
             }, {}, callback);  
         },
         saveNewAlbum: function(data, callback) {

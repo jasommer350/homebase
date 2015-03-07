@@ -20,7 +20,9 @@ module.exports = function(io) {
             dispatchAll(socket);
         });
         socket.on('updateData', function(data) {
-            db.updateData(data, function(err, data) {
+            db.updateData(data, function(err, dataBack) {
+                console.log('**** Data back from Update ****');
+                console.log(dataBack);
                 if(err) throw err; // You can emit the error to a socket 
                 dispatchAll(socket);
             });
@@ -39,8 +41,13 @@ module.exports = function(io) {
             db.saveNewAlbum(data, function(err, dataReturned) {
                 if(err) throw err; // You can emit the error to a socket
                 fs.mkdir(imgFolder + data.albumnName,function(e){
-                    if(e) throw e;
-                    dispatchAll(socket);
+                    if(e) {
+                        //throw e;
+                        dispatchErrorMsg('photoblog', e); 
+                    } else {
+                        dispatchAll(socket);    
+                    }
+                    
                 });
             });
         });  
@@ -56,9 +63,14 @@ module.exports = function(io) {
         db.findAllDataJSON(function(err, data) {
             if(err) throw err; // You can emit the error to a socket 
             //console.log(socket.rooms);
-            console.log(data);
+           // console.log(data);
             io.of('/photoblog').emit('allData', data);
         });
     }
+    
+    function dispatchErrorMsg(namespace, err) {
+        io.of('/' + namespace).emit('errorMsg', err);
+    }
+    
     return album;
 }
