@@ -2,9 +2,9 @@ var UploadHandler = require('./uploads'),
     PhotoblogMain = require('./photoblogMain');
 
 
-module.exports = exports = function(app) { 
+module.exports = exports = function(app, mainDirname) { 
     
-    var uploadHandler = new UploadHandler(),
+    var uploadHandler = new UploadHandler(mainDirname),
         photoblogMain = new PhotoblogMain();
     
     /* GET home page. */

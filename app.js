@@ -28,7 +28,7 @@ app.use('/todo', cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use('/', routes);
-routes(app);
+routes(app, __dirname);
 
 
 

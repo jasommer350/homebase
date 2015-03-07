@@ -2,7 +2,7 @@ var formidable = require('formidable'),
     util = require('util'),
     fs = require('fs'),
     db = require("../database/dboperations"),
-    imgFolder = '/home/codio/workspace/public/img/',
+    imgFolder,//= '/home/codio/workspace/public/img/',
     updatePhotoAlbum = function(albumNameId, picLocations, fileName) {
         return db.updateAlbum(albumNameId, picLocations, fileName);
     };
@@ -39,7 +39,8 @@ function writeImgFile (dataUrl) {
 }
 
 
-function handleUploads () {
+function handleUploads (mainDirname) {
+    imgFolder = this.mainDirname = mainDirname + '/public/img/';
     this.handleEditImgSave = function(req, res) {
         var albumFolder = "defaults", dataString='';
         req.on('data', function(data) {
