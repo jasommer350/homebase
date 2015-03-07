@@ -15,7 +15,8 @@ window.URL = window.URL || window.webkitURL;
     modalEl = $('#myModal'),
     modalImgEl = $('#modalImg'),
     modalAddEl = $('#myModalAdd'),
-    albumName = document.getElementById('album-name');
+    albumName = document.getElementById('album-name'),
+    originUrl = window.location.origin;
     
     //Sends a delete request to the server for a picture
     //apiPath is in the following format: /remove/:album/:fileName
@@ -85,7 +86,7 @@ window.URL = window.URL || window.webkitURL;
         } else {
             console.log('Deleting Pic')
             originalFileName = originalFileName.split("/").pop();
-            namespace.delete('https://today-command.codio.io:9500/remove/' + albumName.dataset.album + "/" + originalFileName);
+            namespace.delete(originUrl + '/remove/' + albumName.dataset.album + "/" + originalFileName);
         }  
     };
     
@@ -115,7 +116,7 @@ window.URL = window.URL || window.webkitURL;
                 updatePicSrc(picloc, resp.picFileLoc, albumName);
             }
         };
-        request.open('POST', 'https://today-command.codio.io:9500/upload/' + albumName.dataset.album);
+        request.open('POST', originUrl + '/upload/' + albumName.dataset.album);
         request.send(data);
         modalAddEl.modal('hide');
         
@@ -148,7 +149,7 @@ window.URL = window.URL || window.webkitURL;
             console.log("Remove from this album: ", albumName.dataset.album);
             console.log("File Name: ", originalFileName);
             $('figure[data-src="/img/' + albumName.dataset.album + '/' + originalFileName + '"]').remove();
-            namespace.delete('https://today-command.codio.io:9500/remove/gallerypic/' + albumName.dataset.album + '/' + albumName.dataset.id + "/" + originalFileName);
+            namespace.delete(originUrl + '/remove/gallerypic/' + albumName.dataset.album + '/' + albumName.dataset.id + "/" + originalFileName);
         } else {
             modalImgEl.attr("src", nodeElSrc);
             modalEl.modal('show');
