@@ -49,20 +49,21 @@ function sendFormData (evt) {
 
 //Listens for if an edit or remove button was clicked on the data list
 function dataItemChg(evt) {
-    var action = evt.target.dataset.action || null, chgId;
+    var action = evt.target.dataset.action || null, chgId, getDataItem, itemData;
     if(action) {
         chgId = evt.path[4].id;  //Since this is a template I know that place 4 in the path will be the LI element that I need
+        getDataItem = col.every(function(element, index, array) {
+          if (element._id === chgId) {
+              itemData = element
+            return false;
+          }
+          return true;
+        });   
         if(action === 'remove') {
             //Need to send remove to data manager to send to server
-            //dm.pubData('photoblog', 'deleteData', chgId, savedToLocal);
+            dm.pubData('photoblog', 'deleteAlbum', itemData, savedToLocal);
         } else {
-            col.forEach(function(k) {
-                if (k._id === chgId) {
-                    //populate form with obj K's data
-                    populateForm(k);
-                    return
-                };
-            });   
+            populateForm(itemData);
         }
     }
 }

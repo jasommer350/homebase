@@ -7,6 +7,7 @@
  */
 var fs = require('fs'),
     Datastore = require('nedb'),
+    fileOps = require("../utilities/fileOperations")
     imgFolder = '/home/codio/workspace/public',
     dbOps = {
         db: null,
@@ -42,6 +43,15 @@ var fs = require('fs'),
           this.db.remove({
                 _id: _id
             }, {}, callback);  
+        },
+        removeAlbumData: function(itemData, callback) {
+            var self = this;
+            fileOps.rmDir(imgFolder + "/img/" + itemData.albumnName, function(err, fileCount) {
+                if(err) throw err;
+                self.db.remove({
+                    _id: itemData._id
+                }, {}, callback); 
+            })
         },
         saveNewAlbum: function(data, callback) {
             //db.todos.insert(todo, callback);

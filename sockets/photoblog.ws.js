@@ -33,6 +33,12 @@ module.exports = function(io) {
                 dispatchAll(socket);
             });
         });
+        socket.on('deleteAlbum', function(itemData) {
+            db.removeAlbumData(itemData, function(err, data) {
+                if(err) throw err; // You can emit the error to a socket 
+                dispatchAll(socket);
+            })
+        })
         socket.on('findById', function(data) {
             dispatchOne(socket, data);
         });
