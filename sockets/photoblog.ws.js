@@ -46,10 +46,10 @@ module.exports = function(io) {
         socket.on('addAlbum', function(data) {
             db.saveNewAlbum(data, function(err, dataReturned) {
                 if(err) throw err; // You can emit the error to a socket
-                fs.mkdir(imgFolder + data.albumnName,function(e){
+                fs.mkdir(db.mainDirname + '/img/' + data.albumnName,function(e){
                     if(e) {
-                        //throw e;
                         dispatchErrorMsg('photoblog', e); 
+                        throw e;
                     } else {
                         dispatchAll(socket);    
                     }
