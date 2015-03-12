@@ -150,7 +150,7 @@
   margin: auto;
 }
 
-/* line 134, ../../sass/photoblog/photoblog.scss */
+/* line 135, ../../sass/photoblog/photoblog.scss */
 .shadow {
   -webkit-box-shadow: 8px 8px 15px -6px black;
   /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
@@ -160,7 +160,7 @@
   /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 }
 
-/* line 140, ../../sass/photoblog/photoblog.scss */
+/* line 141, ../../sass/photoblog/photoblog.scss */
 .one-edge-shadow {
   -webkit-box-shadow: 0 8px 6px -6px black;
   -moz-box-shadow: 0 8px 6px -6px black;
@@ -169,29 +169,29 @@
 
 /* Smaller than standard 960 (devices and browsers) */
 @media only screen and (max-width: 959px) {
-  /* line 148, ../../sass/photoblog/photoblog.scss */
+  /* line 149, ../../sass/photoblog/photoblog.scss */
   .container {
     width: 100%;
   }
 
-  /* line 152, ../../sass/photoblog/photoblog.scss */
+  /* line 153, ../../sass/photoblog/photoblog.scss */
   .main .welcome-content {
     display: none;
   }
 
-  /* line 156, ../../sass/photoblog/photoblog.scss */
+  /* line 157, ../../sass/photoblog/photoblog.scss */
   label {
     display: none;
   }
 
-  /* line 159, ../../sass/photoblog/photoblog.scss */
+  /* line 160, ../../sass/photoblog/photoblog.scss */
   .portfolio .all {
     margin-bottom: 15px;
     padding-right: 0;
     padding-left: 0;
   }
 
-  /* line 165, ../../sass/photoblog/photoblog.scss */
+  /* line 166, ../../sass/photoblog/photoblog.scss */
   .portfolio figcaption {
     position: relative;
     -webkit-transform: translateX(0%);

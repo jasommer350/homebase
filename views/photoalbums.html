@@ -1,44 +1,58 @@
 {% extends 'datainput.html' %}
 
 {% block form %}
-<form class="form-horizontal" role="form" id="reminder-form">
-    <div class="form-group">
-        <label for="reminder-title" class="col-sm-2 control-label">Album Title</label>
+<div class="container">
+    <div class="row">
         <div class="col-sm-6">
-            <input type="text" class="form-control" id="albumnName" placeholder="Album Name">
+            <form class="form-horizontal" role="form" id="reminder-form">
+                <div class="form-group">
+                    <label for="reminder-title" class="col-sm-2 control-label">Album Title</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="albumnName" placeholder="Album Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="jumbo-narrative" class="col-sm-2 control-label">Jumbo Narrative</label>
+                    <div class="col-sm-6">
+                        <textarea name="jumbo-narrative" class="form-control" id="jumbo"></textarea>
+                        <button class="btn btn-info" data-showpic="jumbopic">Show Jumbo Pic</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="subhOne-narrative" class="col-sm-2 control-label">Sub Narrative One</label>
+                    <div class="col-sm-6">
+                        <textarea name="subhOne-narrative" class="form-control" id="subhOne"></textarea>
+                        <button class="btn btn-info" data-showpic="subheading_one">Show Sub-Header 1 Pic</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="subhTwo-narrative" class="col-sm-2 control-label">Sub Narrative Two</label>
+                    <div class="col-sm-6">
+                        <textarea name="subhTwo-narrative" class="form-control" id="subhTwo"></textarea>
+                        <button class="btn btn-info" data-showpic="subheading_two">Show Sub-Header 2 Pic</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="subhThree-narrative" class="col-sm-2 control-label">Sub Narrative Three</label>
+                    <div class="col-sm-6">
+                        <textarea name="subhThree-narrative" class="form-control" id="subhThree"></textarea>
+                        <button class="btn btn-info" data-showpic="subheading_three">Show Sub-Header 3 Pic</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button class="btn btn-default" id="form-btn-submit">Submit</button>
+                        <button class="btn btn-warning" id="form-btn-reset">Reset</button>
+                    </div>
+                </div>
+                <input type="text" id="data_id" class="visible-hidden" value="new">
+            </form>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="jumbo-narrative" class="col-sm-2 control-label">Jumbo Narrative</label>
         <div class="col-sm-6">
-            <textarea name="jumbo-narrative" class="form-control" id="jumbo"></textarea>
+            <img src="/img/defaults/nyc.jpg" alt="" id="formImg">
         </div>
     </div>
-    <div class="form-group">
-        <label for="subhOne-narrative" class="col-sm-2 control-label">Sub Narrative One</label>
-        <div class="col-sm-6">
-            <textarea name="subhOne-narrative" class="form-control" id="subhOne"></textarea>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="subhTwo-narrative" class="col-sm-2 control-label">Sub Narrative Two</label>
-        <div class="col-sm-6">
-            <textarea name="subhTwo-narrative" class="form-control" id="subhTwo"></textarea>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="subhThree-narrative" class="col-sm-2 control-label">Sub Narrative Two</label>
-        <div class="col-sm-6">
-            <textarea name="subhThree-narrative" class="form-control" id="subhThree"></textarea>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button class="btn btn-default" id="form-btn-submit">Submit</button>
-        </div>
-    </div>
-    <input type="text" id="data_id" class="visible-hidden" value="new">
-</form>
+</div>
 {% endblock %}
 
 {% block datalist %}

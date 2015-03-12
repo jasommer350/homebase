@@ -1,4 +1,3 @@
-
 var options = {
         connection: window.location.origin,
         connectCB: connectCB,
@@ -13,15 +12,24 @@ var options = {
     },
     dm = new DataManager(options),
     col = [],
+    currentFormData, //Holds the data obj of data that is shown on the current form
     albumnNameEl = $("#albumnName"),
     jumboEl = $("#jumbo"),
     subhOneEl = $("#subhOne"),
     subhTwoEl = $("#subhTwo"),
     subhThreeEl = $("#subhThree"),
-    formDataIdEl = $("#data_id");
+    formDataIdEl = $("#data_id"),
+    formImgEl = $("#formImg");
 
 //Sets handler for the form submission to sever for a new album request
 $("#form-btn-submit").click(sendFormData);
+
+//Sets handler for the form reset
+$("#form-btn-reset").click(resetFormData);
+
+//Sets handler for chaning form pic when user clicks on a narrative
+$("#reminder-form").click(updatePicSrc);
+
 //Sets handler for edits and removal of data list items
 //$("#data-list").on('click', dataItemChg, true);
 document.getElementById("data-list").addEventListener("click",dataItemChg );
@@ -42,10 +50,32 @@ function sendFormData (evt) {
     } else {
         formData._id = formDataIdEl.val();
         dm.pubData('photoblog', 'updateData', formData, savedToLocal)
-        formDataIdEl.val('new') //Resets to new default
+        resetFormData();
     }
 }
 
+function resetFormData (evt) {
+    if (evt) {
+        evt.preventDefault();    
+    }
+    albumnNameEl.val("");
+    jumboEl.val("");
+    subhOneEl.val("");
+    subhTwoEl.val("");
+    subhThreeEl.val("");
+    formDataIdEl.val('new') //Resets to new default
+    currentFormData = null; //Resets the current form data
+}
+
+function updatePicSrc (evt) {
+    var showpic, showpicUrl;
+    if (evt.target.nodeName === 'BUTTON' && formDataIdEl.val() !== 'new' && currentFormData) {
+        showpic = evt.target.dataset.showpic;
+        showpicUrl = currentFormData.picLocations[showpic] || "/img/defaults/nyc.jpg";
+        formImgEl.attr("src", showpicUrl);
+    }
+    evt.preventDefault(); 
+}
 
 //Listens for if an edit or remove button was clicked on the data list
 function dataItemChg(evt) {
@@ -84,11 +114,12 @@ function savedToLocal(savedToLocal) {
 
 function populateForm(data) {
     if(data) {
-        albumnNameEl.val(data.albumnName),
-        jumboEl.val(data.jumbo),
-        subhOneEl.val(data.subhOne),
-        subhTwoEl.val(data.subhTwo),
-        subhThreeEl.val(data.subhThree)
+        currentFormData = data;  //Sets the global var to be equal to current form data obj
+        albumnNameEl.val(data.albumnName);
+        jumboEl.val(data.jumbo);
+        subhOneEl.val(data.subhOne);
+        subhTwoEl.val(data.subhTwo);
+        subhThreeEl.val(data.subhThree);
         formDataIdEl.val(data._id);
         $("#backCreate").click(); //Triggers the event setup in the Nav for changing the view to the form
     }
